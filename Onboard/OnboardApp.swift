@@ -12,6 +12,7 @@ struct OnboardApp: App {
     
     // want it to persist across sessions, SO use appstorage
     @AppStorage("onboarded") private var onboarded = false
+    // gets deleted if the app is deleted
     
     var body: some Scene {
         WindowGroup {
@@ -22,7 +23,7 @@ struct OnboardApp: App {
             }
             else {
                 // go to onboarding flow
-                OnboardingView(onboarded: $onboarded)
+                MultiStepOnboardFlow(onboarded: $onboarded)
                 // pass in the value from AppStorage
             }
         }

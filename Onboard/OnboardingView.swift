@@ -9,37 +9,30 @@ import SwiftUI
 
 struct OnboardingView: View {
     
-    // @Binding so it can change the value
-    @Binding var onboarded: Bool
+    // @Binding so it can change the value - moved to TabView area
+    //@Binding var onboarded: Bool
+    
+    // dynamic
+    var title: String
+    var desc: String
+    var image: String?
     
     var body: some View {
         VStack {
             Spacer()
-            Text("Hi There!")
+            Text(title)
                 .font(.largeTitle)
-            Text("Did you know that you can get 300% smarter by getting a good night's sleep?")
+            Text(desc)
                 .multilineTextAlignment(.center)
+            //"Did you know that you can get 300% smarter by getting a good night's sleep?"
             Spacer()
-            Button(action: {
-                // set onboarded flag to true
-                onboarded = true
-            }, label: {
-                Text("Get Started")
-                    .bold()
-                    .padding()
-                // foreground Style, not font
-                    .foregroundStyle(Color.white)
-                // background padding set to a comomon button size by default
-                    .background(Color.blue)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-            })
-            .padding()
+
                 
         }
     }
 }
 
-#Preview {
-    // for the sake of the preview, we pass in false
-    OnboardingView(onboarded: Binding.constant(false))
-}
+//#Preview {
+//    // for the sake of the preview, we pass in false
+//    OnboardingView(onboarded: Binding.constant(false))
+//}
